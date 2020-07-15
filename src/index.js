@@ -7,13 +7,14 @@ class Notepad {
         this.date = document.getElementById('txtDate');
         this.hour = document.getElementById('txtHour');
         this.btnRegisterNote = document.getElementById('btnRegister');
-        this.events();
+        
         this.getNotes();
+        this.events();
     }
 
     events(){
         
-        this.btnRegisterNote.onclick = (event) => this.createUser(event);
+        this.btnRegisterNote.onclick = (event) => this.createNote(event);
     }
 
     getNotes(){
@@ -61,7 +62,7 @@ class Notepad {
                         <p class='note-date'>${date}</p>
                         <p class='note-hour'>${hour}</p>  
                         <button type="button" class="btn btn-danger delete-note" id="${id}">Delete</button>
-                        <button type="button" class="btn btn-warning warning-note" id="${id}">Atualizar</button>
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Editar</button>
                     </div>
                 </div>
             </div>`;
@@ -70,12 +71,11 @@ class Notepad {
     noteValidate(event){
         event.preventDefault();
         if (this.title.value && this.content.value && this.date.value && this.hour.value){
-
             const note = {
-                name: this.title.value,
-                email: this.content.value,
-                age: this.date.value,
-                phone: this.hour.value
+                title: this.title.value,
+                content: this.content.value,
+                date: this.date.value,
+                hour: this.hour.value
             }
 
         this.createNote(note);
