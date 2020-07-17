@@ -6,22 +6,29 @@ class Notepad {
         this.content = document.getElementById('txtContent');
         this.date = document.getElementById('txtDate');
         this.hour = document.getElementById('txtHour');
+        // this.titleModal = document.getElementById('titleModal');
+        this.contentModal = document.getElementById('contentModal');
+        this.dateModal = document.getElementById('dateModal');
+        this.hourModal = document.getElementById('hourModal');
+        this.id = 0;
         this.btnRegisterNote = document.getElementById('btnRegister');
-        
+        this.btnUpdateNote = document.getElementById('btn-update');
         this.getNotes();
         this.events();
+        // this.updateNote();
     }
 
     events(){
         
-        this.btnRegisterNote.onclick = (event) => this.createNote(event);
+        this.btnRegisterNote.onclick = (event) => this.noteValidate(event);
+        this.btnUpdateNote.onclick = (event) => this.updateNote(this.id);
     }
 
     getNotes(){
         axios.get(`http://localhost:3000/notepad`)
         .then((response) => {
             this.recoveryNote(response.data.notepad);
-            console.log(note);
+            console.log(response.data.notepad);
         })
         .catch((err) => {
             console.log(err);
@@ -29,7 +36,6 @@ class Notepad {
     }
 
     recoveryNote(data){
-        console.log(data);
         for (note of data) {
 
             const html = this.layoutNote(note.title, note.content, note.date, note.hour, note.id);
@@ -40,19 +46,57 @@ class Notepad {
         document.querySelectorAll('.delete-note').forEach(button => {
             button.onclick = event => this.deleteNote(button.id);
         })
+
+        document.querySelectorAll('.get-note').forEach(button => {
+            button.onclick = event => this.getNote(button.id);
+        })
     }
 
-    deleteNote(id){
+    deleteNote(id) {
         axios.delete(`http://localhost:3000/notepad/${id}`)
         .then(response => {
-            alert(response.data.result);
+            console.log(response);
         })
-        .catch(error => {
-            console.log(err)
+        .catch(err => {
+            console.log(err);
         })
     }
 
-    layoutNote(title, content, date, hour, id){   
+    getNote(id) {
+        axios.get(`http://localhost:3000/notepad/${id}`)
+        .then((response) => {
+            console.log(response.data.note);
+
+            this.id = id;
+            document.getElementById('titleModal').value = response.data.note[0].title;
+            document.getElementById('contentModal').value = response.date.note[0].content;
+            document.getElementById('dateModal').value = response.date.note[0].date;
+            document.getElementById('hourModal').value = response.date.note[0].hour;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    updateNote(id) {
+
+        let note = {
+            title: this.titleModal.value,
+            content: this.contentModal.value,
+            date: this.dateModal.value,
+            hour: this.hourModal.value
+        }
+
+        axios.put(`http://localhost:3000/notepad/${id}`, note)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    layoutNote(title, content, date, hour, id) {   
         return `
             <div class='col mt-5'>
                 <div class='note'>
@@ -61,8 +105,10 @@ class Notepad {
                         <p class='note-content'>${content}</p>
                         <p class='note-date'>${date}</p>
                         <p class='note-hour'>${hour}</p>  
-                        <button type="button" class="btn btn-danger delete-note" id="${id}">Delete</button>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Editar</button>
+                        <button type="button" class="btn btn-danger delete-note" id="${id}">Deletar</button>
+
+                        <button type="button" class="btn btn-warning get-note" id="${id}" data-toggle="modal" 
+                        data-target="#exampleModal" data-whatever="@mdo">Editar</button>
                     </div>
                 </div>
             </div>`;
@@ -95,7 +141,7 @@ class Notepad {
             const html = this.layoutNote(note.title, note.content, note.date, note.hour);
 
             this.insertHtml(html);
-            
+            console.log(response);
         })
         .catch((err) => {
             console.log(err);
