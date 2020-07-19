@@ -2,3 +2,42 @@
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+form{
+    width: 150%;
+    // background-color: brown;
+}
+
+#nav{
+    background: linear-gradient(to right, #157e15, rgb(238, 56, 32) , #f1da07);
+}
+
+#container-dynamic{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: linear-gradient(to right, #157e15, rgb(238, 56, 32) , #f1da07);
+    width: 250%;
+}
+
+.card{
+    border: solid 1px black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    
+}
+
+input{
+    border: solid 1px black !important;
+}
+
+.input-modal{
+    width: 60% !important;
+}

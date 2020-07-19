@@ -10817,4 +10817,52 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+.container {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (300px)[3];
+      grid-template-columns: repeat(3, 300px);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+form {
+  width: 150%;
+}
+
+#nav {
+  background: -webkit-gradient(linear, left top, right top, from(#157e15), color-stop(#ee3820), to(#f1da07));
+  background: linear-gradient(to right, #157e15, #ee3820, #f1da07);
+}
+
+#container-dynamic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, right top, from(#157e15), color-stop(#ee3820), to(#f1da07));
+  background: linear-gradient(to right, #157e15, #ee3820, #f1da07);
+  width: 250%;
+}
+
+.card {
+  border: solid 1px black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+input {
+  border: solid 1px black !important;
+}
+
+.input-modal {
+  width: 60% !important;
+}
 /*# sourceMappingURL=style.css.map */

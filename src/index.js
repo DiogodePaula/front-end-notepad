@@ -6,7 +6,7 @@ class Notepad {
         this.content = document.getElementById('txtContent');
         this.date = document.getElementById('txtDate');
         this.hour = document.getElementById('txtHour');
-        // this.titleModal = document.getElementById('titleModal');
+        this.titleModal = document.getElementById('titleModal');
         this.contentModal = document.getElementById('contentModal');
         this.dateModal = document.getElementById('dateModal');
         this.hourModal = document.getElementById('hourModal');
@@ -68,10 +68,12 @@ class Notepad {
             console.log(response.data.note);
 
             this.id = id;
-            document.getElementById('titleModal').value = response.data.note[0].title;
-            document.getElementById('contentModal').value = response.date.note[0].content;
-            document.getElementById('dateModal').value = response.date.note[0].date;
-            document.getElementById('hourModal').value = response.date.note[0].hour;
+            this.titleModal.value = response.data.note[0].title;
+            this.contentModal.value = response.date.note[0].content;
+            this.dateModal.value = response.date.note[0].date;
+            this.hourModal.value = response.date.note[0].hour;
+
+            console.log(response.data.note[0].content);
         })
         .catch((err) => {
             console.log(err);
@@ -98,20 +100,19 @@ class Notepad {
 
     layoutNote(title, content, date, hour, id) {   
         return `
-            <div class='col mt-5'>
-                <div class='note'>
-                    <div class='note-body'>
-                        <h3 class='note-title'>${title}</h3>
-                        <p class='note-content'>${content}</p>
-                        <p class='note-date'>${date}</p>
-                        <p class='note-hour'>${hour}</p>  
-                        <button type="button" class="btn btn-danger delete-note" id="${id}">Deletar</button>
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">${title}</h5>
+                <p class="card-text">${content}</p>
+                <p class="card-text">${date}</p>  
+                <p class="card-text">${hour}</p>
+                <button type="button" class="btn btn-danger delete-note" id="${id}">Deletar</button>
 
-                        <button type="button" class="btn btn-warning get-note" id="${id}" data-toggle="modal" 
-                        data-target="#exampleModal" data-whatever="@mdo">Editar</button>
-                    </div>
-                </div>
-            </div>`;
+                <button type="button" class="btn btn-warning get-note" id="${id}" data-toggle="modal" 
+                data-target="#exampleModal" data-whatever="@mdo">Editar</button>
+            </div>
+        </div>
+        `;
     }
 
     noteValidate(event){

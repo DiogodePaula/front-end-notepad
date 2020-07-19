@@ -19,20 +19,20 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="title-name" class="col-form-label">Title:</label>
-                  <input type="text" class="form-control" id="titleModal">
+                  <label  class="col-form-label">Title:</label>
+                  <input type="text" class="form-control input-modal" id="titleModal">
                 </div>
                 <div class="form-group">
-                    <label for="content-name" class="col-form-label">Content:</label>
-                    <input type="text" class="form-control" id="contentModal">
+                    <label  class="col-form-label">Content:</label>
+                    <input type="text" class="form-control input-modal" id="contentModal">
                   </div>
                   <div class="form-group">
-                    <label for="date-name" class="col-form-label">Date:</label>
-                    <input type="date" class="form-control" id="dateModal">
+                    <label  class="col-form-label">Date:</label>
+                    <input type="date" class="form-control input-modal" id="dateModal">
                   </div>
                   <div class="form-group">
-                    <label for="hour-name" class="col-form-label">Hour:</label>
-                    <input type="time" class="form-control" id="hourModal">
+                    <label  class="col-form-label">Hour:</label>
+                    <input type="time" class="form-control input-modal" id="hourModal">
                   </div>
               </form>
             </div>
@@ -44,15 +44,15 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-dark bg-dark mb-5">
+    <nav class="navbar navbar-dark bg-dark mb-5" id="nav">
         <span class="navbar-brand mb-0 h1">BLOCO DE NOTAS</span>
     </nav>
 
     <div class="container">
         <div class="row" id="row_form">
-            <div class="col-sm">
-                <form>
-                    <div class="form-group">
+            <div class="col-sm pai-form">
+                <form class="">
+                    <div class="form-group ">
                         <label for="exampleInputEmail1">Titulo</label>
                         <input type="text" class="form-control" id="txtTitle">
                         
@@ -73,12 +73,12 @@
                         
                     </div>
                     <button type="submit" id="btnRegister" class="btn btn-success">Criar Nota</button>
-                    <!-- evento padrão do submit é recarregar a pagina  -->
                 </form>
             </div>
         </div>
         <br>
-        <div class="row mt-5 mb-5" id="newNotes"> 
+        <div id="container-dynamic">
+            <div class="row mt-5 mb-5 container-div" id="newNotes"></div>
         </div>
     </div> 
     
