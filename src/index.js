@@ -15,7 +15,6 @@ class Notepad {
         this.btnUpdateNote = document.getElementById('btn-update');
         this.getNotes();
         this.events();
-        // this.updateNote();
     }
 
     events(){
@@ -69,9 +68,9 @@ class Notepad {
 
             this.id = id;
             this.titleModal.value = response.data.note[0].title;
-            this.contentModal.value = response.date.note[0].content;
-            this.dateModal.value = response.date.note[0].date;
-            this.hourModal.value = response.date.note[0].hour;
+            this.contentModal.value = response.data.note[0].content;
+            this.dateModal.value = response.data.note[0].date;
+            this.hourModal.value = response.data.note[0].hour;
 
             console.log(response.data.note[0].content);
         })
