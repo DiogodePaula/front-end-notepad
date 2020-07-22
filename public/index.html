@@ -1,90 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Notepad</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Notepad</title>
 </head>
+
 <body>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Editar nota</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="form-modal">
-                <div class="form-group">
-                  <label  class="col-form-label">Title:</label>
-                  <input type="text" class="form-control input-modal" id="titleModal">
-                </div>
-                <div class="form-group">
-                    <label  class="col-form-label">Content:</label>
-                    <input type="text" class="form-control input-modal" id="contentModal">
-                  </div>
-                  <div class="form-group">
-                    <label  class="col-form-label">Date:</label>
-                    <input type="date" class="form-control input-modal" id="dateModal">
-                  </div>
-                  <div class="form-group">
-                    <label  class="col-form-label">Hour:</label>
-                    <input type="time" class="form-control input-modal" id="hourModal">
-                  </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-success" id="btn-update">Atualizar</button>
-            </div>
-          </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar nota</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <form id="form-modal">
+            <div class="form-group">
+              <label class="col-form-label">Title:</label>
+              <input type="text" class="form-control input-modal" id="titleModal">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Content:</label>
+              <input type="text" class="form-control input-modal" id="contentModal">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Date:</label>
+              <input type="date" class="form-control input-modal" id="dateModal">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Hour:</label>
+              <input type="time" class="form-control input-modal" id="hourModal">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-success" id="btn-update">Atualizar</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <nav class="navbar navbar-dark bg-dark mb-5" id="nav">
-        <span class="navbar-brand mb-0 h1">BLOCO DE NOTAS</span>
-    </nav>
+  <nav class="navbar navbar-dark bg-dark mb-5" id="nav">
+    <span class="navbar-brand mb-0 h1">BLOCO DE NOTAS</span>
+  </nav>
 
-    <div class="container">
-        <div class="row" id="row_form">
-            <div class="col-sm pai-form">
-                <form id="form-layout">
-                    <div class="form-group ">
-                        <label for="exampleInputEmail1">Titulo</label>
-                        <input type="text" class="form-control" id="txtTitle">
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Conteúdo</label>
-                        <input type="text" class="form-control" id="txtContent">
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Data</label>
-                        <input type="date" class="form-control" id="txtDate">
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Hora</label>
-                        <input type="time" class="form-control" id="txtHour">
-                        
-                    </div>
-                    <button type="submit" id="btnRegister" class="btn btn-success">Criar Nota</button>
-                </form>
-            </div>
-        </div>
-        <br>
-        <div id="container-dynamic">
-            <div class="row mt-5 mb-5 container-div" id="newNotes"></div>
-        </div>
-    </div> 
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="./bundle.js"></script>
+  <div class="container">
+    <div class="row" id="row_form">
+      <div class="col-sm pai-form">
+        <form id="form-layout">
+          <div class="form-group ">
+            <label for="exampleInputEmail1">Titulo</label>
+            <input type="text" class="form-control" id="txtTitle">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Conteúdo</label>
+            <input type="text" class="form-control" id="txtContent">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Data</label>
+            <input type="date" class="form-control" id="txtDate">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Hora</label>
+            <input type="time" class="form-control" id="txtHour">
+
+          </div>
+          <button type="submit" id="btnRegister" class="btn btn-success">Criar Nota</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div id="container-dynamic">
+      <div class="row mt-5 mb-5 container-div" id="newNotes"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./bundle.js"></script>
 </body>
+
 </html>
